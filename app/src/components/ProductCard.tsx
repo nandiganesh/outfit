@@ -7,7 +7,7 @@ import type { Product } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ProductCard({ product, index }: { product: Product; index: number }) {
+export function ProductCard({ product }: { product: Product; index?: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
