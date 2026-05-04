@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #EDE7E0;
+    --fg: #FF0000;
+    --fg-secondary: #FF0000;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+  }
+
+  [data-theme="black"] {
+    --bg: #000000;
+    --fg: #EDE7E0;
+    --fg-secondary: #EDE7E0;
+  }
+
+  [data-theme="cream"] {
+    --bg: #EDE7E0;
+    --fg: #000000;
+    --fg-secondary: #000000;
+  }
+
+  * {
+    @apply border-border;
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+  }
+
+  a, button, input, textarea {
+    cursor: none !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .text-hero {
+    font-size: clamp(80px, 18vw, 280px);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+
+  .text-statement {
+    font-size: clamp(48px, 10vw, 160px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .link-hover {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease;
+  }
+
+  .link-hover:hover::after {
+    transform: scaleX(1);
+  }
+
+  .product-image-hover {
+    transition: transform 400ms ease-out;
+  }
+
+  .product-image-hover:hover {
+    transform: scale(1.02);
+  }
+}
